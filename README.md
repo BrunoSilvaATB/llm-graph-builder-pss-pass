@@ -13,7 +13,7 @@ This application allows you to upload files from various sources (local machine,
 - To keep compatibility with the required dependecies, the Python 3.12 is the best choice. This project uses the virtual-env. PyCharm allows to add Python 3.12.10 in Virtual-env.
 - When getting dependencies that are in the code, the from .src sometimes provides issues, to solve it just add the folder src as SOURCE ROOT folder.
 - Let the environemnt names as .env, as those are default names.
-- There are issues with the version of Numphy, to solve that issue just run `pip install "numpy<2`.
+- There are issues with the version of Numphy, to solve that issue just run `pip install numpy<2`.
 - Before running the yarn dev run, you should first install the dependencies, so please run `yarn install`.
 
 ## Getting Started
