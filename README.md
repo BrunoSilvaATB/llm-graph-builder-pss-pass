@@ -8,7 +8,7 @@ Transform unstructured data (PDFs, DOCs, TXTs, YouTube videos, web pages, etc.) 
 
 This application allows you to upload files from various sources (local machine, GCS, S3 bucket, or web sources), choose your preferred LLM model, and generate a Knowledge Graph.
 
-## Lessons Learned
+## Lessons Learned by silva@atb-bremen.de
 
 - To keep compatibility with the required dependecies, the Python 3.12 is the best choice. This project uses the virtual-env. PyCharm allows to add Python 3.12.10 in Virtual-env.
 - When getting dependencies that are in the code, the from .src sometimes provides issues, to solve it just add the folder src as SOURCE ROOT folder.
