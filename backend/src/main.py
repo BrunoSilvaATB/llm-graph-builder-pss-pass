@@ -16,37 +16,37 @@ from langchain_core.documents import Document
 from langchain_community.document_loaders import WikipediaLoader, WebBaseLoader
 from langchain_neo4j import Neo4jGraph
 
-from src.create_chunks import CreateChunksofDocument
-from src.document_sources.gcs_bucket import (
+from create_chunks import CreateChunksofDocument
+from document_sources.gcs_bucket import (
     copy_failed_file, delete_file_from_gcs, get_documents_from_gcs,
     get_gcs_bucket_files_info, merge_file_gcs, upload_file_to_gcs
 )
-from src.document_sources.local_file import get_documents_from_file_by_path
-from src.document_sources.s3_bucket import get_documents_from_s3, get_s3_files_info
-from src.document_sources.web_pages import get_documents_from_web_page
-from src.document_sources.wikipedia import get_documents_from_wikipedia
-from src.document_sources.youtube import get_documents_from_youtube, get_youtube_combined_transcript
-from src.entities.source_node import sourceNode
-from src.graph_query import get_graphDB_driver
-from src.graphDB_dataAccess import graphDBdataAccess
-from src.llm import get_graph_from_llm
-from src.make_relationships import (
+from document_sources.local_file import get_documents_from_file_by_path
+from document_sources.s3_bucket import get_documents_from_s3, get_s3_files_info
+from document_sources.web_pages import get_documents_from_web_page
+from document_sources.wikipedia import get_documents_from_wikipedia
+from document_sources.youtube import get_documents_from_youtube, get_youtube_combined_transcript
+from entities.source_node import sourceNode
+from graph_query import get_graphDB_driver
+from graphDB_dataAccess import graphDBdataAccess
+from llm import get_graph_from_llm
+from make_relationships import (
     create_chunk_embeddings, create_chunk_vector_index, create_relation_between_chunks,
     execute_graph_query, merge_relationship_between_chunk_and_entites
 )
-from src.shared.common_fn import (
+from shared.common_fn import (
     check_url_source, create_gcs_bucket_folder_name_hashed, create_graph_database_connection,
     delete_uploaded_local_file, get_chunk_and_graphDocument, get_value_from_env,
     handle_backticks_nodes_relationship_id_type, last_url_segment, save_graphDocuments_in_neo4j, track_token_usage
 )
-from src.shared.constants import (
+from shared.constants import (
     DELETE_ENTITIES_AND_START_FROM_BEGINNING, QUERY_TO_DELETE_EXISTING_ENTITIES,
     QUERY_TO_GET_CHUNKS, QUERY_TO_GET_LAST_PROCESSED_CHUNK_POSITION,
     QUERY_TO_GET_LAST_PROCESSED_CHUNK_WITHOUT_ENTITY, QUERY_TO_GET_NODES_AND_RELATIONS_OF_A_DOCUMENT,
     START_FROM_BEGINNING, START_FROM_LAST_PROCESSED_POSITION
 )
-from src.shared.llm_graph_builder_exception import LLMGraphBuilderException
-from src.shared.schema_extraction import schema_extraction_from_text
+from shared.llm_graph_builder_exception import LLMGraphBuilderException
+from shared.schema_extraction import schema_extraction_from_text
 
 warnings.filterwarnings("ignore")
 load_dotenv()

@@ -1,12 +1,12 @@
 import os
 import logging
 import time
-from src.llm import get_llm
+from llm import get_llm
 from datasets import Dataset
 from dotenv import load_dotenv
 from ragas import evaluate
 from ragas.metrics import answer_relevancy, faithfulness,context_entity_recall
-from src.shared.common_fn import get_value_from_env,load_embedding_model 
+from shared.common_fn import get_value_from_env,load_embedding_model
 from ragas.dataset_schema import SingleTurnSample
 from ragas.metrics import RougeScore, SemanticSimilarity
 from ragas.llms import LangchainLLMWrapper
@@ -22,7 +22,7 @@ except LookupError:
     
 load_dotenv()
 
-ragas_embedding_model = get_value_from_env("RAGAS_EMBEDDING_MODEL","openai")
+ragas_embedding_model = get_value_from_env("RAGAS_EMBEDDING_MODEL","all-MiniLM-L6-v2")
 logging.info("Loading embedding model for ragas evaluation")
 EMBEDDING_FUNCTION, _ = load_embedding_model(ragas_embedding_model)
 

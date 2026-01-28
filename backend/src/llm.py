@@ -1,24 +1,24 @@
 import logging
-from langchain_core.documents import Document
-import os
-from langchain_openai import ChatOpenAI, AzureChatOpenAI
-from langchain_google_vertexai import ChatVertexAI
-from langchain_groq import ChatGroq
-from langchain_google_vertexai import HarmBlockThreshold, HarmCategory
-from langchain_experimental.graph_transformers.diffbot import DiffbotGraphTransformer
-from langchain_experimental.graph_transformers import LLMGraphTransformer
-from langchain_anthropic import ChatAnthropic
-from langchain_fireworks import ChatFireworks
-from langchain_aws import ChatBedrock
-from langchain_community.chat_models import ChatOllama
+import re
+
 import boto3
 import google.auth
-from src.shared.constants import ADDITIONAL_INSTRUCTIONS
-from src.shared.llm_graph_builder_exception import LLMGraphBuilderException
-import re
-from typing import List
+from langchain_anthropic import ChatAnthropic
+from langchain_aws import ChatBedrock
+from langchain_community.chat_models import ChatOllama
 from langchain_core.callbacks.manager import CallbackManager
-from src.shared.common_fn import UniversalTokenUsageHandler,get_value_from_env
+from langchain_core.documents import Document
+from langchain_experimental.graph_transformers import LLMGraphTransformer
+from langchain_experimental.graph_transformers.diffbot import DiffbotGraphTransformer
+from langchain_fireworks import ChatFireworks
+from langchain_google_vertexai import ChatVertexAI
+from langchain_google_vertexai import HarmBlockThreshold, HarmCategory
+from langchain_groq import ChatGroq
+from langchain_openai import ChatOpenAI, AzureChatOpenAI
+from shared.common_fn import UniversalTokenUsageHandler, get_value_from_env
+from shared.constants import ADDITIONAL_INSTRUCTIONS
+from shared.llm_graph_builder_exception import LLMGraphBuilderException
+
 
 def get_llm(model: str):
     """Retrieve the specified language model based on the model name."""
@@ -35,6 +35,9 @@ def get_llm(model: str):
     callback_handler = UniversalTokenUsageHandler()
     callback_manager = CallbackManager([callback_handler])
     try:
+        if "localai" in model:
+            model_name = env_value
+
         if "GEMINI" in model:
             model_name = env_value
             credentials, project_id = google.auth.default()

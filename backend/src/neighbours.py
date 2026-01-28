@@ -1,5 +1,5 @@
 import logging
-from src.graph_query import get_graphDB_driver
+from graph_query import get_graphDB_driver
 
 NEIGHBOURS_FROM_ELEMENT_ID_QUERY = """
 MATCH (n) 

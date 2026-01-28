@@ -1,6 +1,6 @@
 from langchain_neo4j import Neo4jGraph
 from langchain_core.documents import Document
-from src.shared.common_fn import load_embedding_model,execute_graph_query,get_value_from_env
+from shared.common_fn import load_embedding_model,execute_graph_query,get_value_from_env
 import logging
 from typing import List
 import os

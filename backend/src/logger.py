@@ -1,6 +1,6 @@
 import os
 from google.cloud import logging as gclogger
-from src.shared.common_fn import get_value_from_env
+from shared.common_fn import get_value_from_env
 
 class CustomLogger:
     def __init__(self):

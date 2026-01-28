@@ -1,13 +1,13 @@
 import logging
 from graphdatascience import GraphDataScience
-from src.llm import get_llm
+from llm import get_llm
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser 
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import os
-from src.shared.common_fn import get_value_from_env
-from src.shared.common_fn import load_embedding_model,track_token_usage
-from src.shared.llm_graph_builder_exception import LLMGraphBuilderException
+from shared.common_fn import get_value_from_env
+from shared.common_fn import load_embedding_model,track_token_usage
+from shared.llm_graph_builder_exception import LLMGraphBuilderException
 
 COMMUNITY_PROJECTION_NAME = "communities"
 NODE_PROJECTION = "!Chunk&!Document&!__Community__"

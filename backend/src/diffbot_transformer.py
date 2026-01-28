@@ -1,6 +1,6 @@
 from typing import List
 import logging
-from src.llm import get_combined_chunks, get_llm
+from llm import get_combined_chunks, get_llm
 
 logging.basicConfig(format='%(asctime)s - %(message)s',level='INFO')
 

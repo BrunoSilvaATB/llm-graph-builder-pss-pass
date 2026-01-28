@@ -20,16 +20,16 @@ from sse_starlette.sse import EventSourceResponse
 from starlette.middleware.sessions import SessionMiddleware
 from starlette.types import ASGIApp, Receive, Scope, Send
 
-from src.QA_integration import QA_RAG, clear_chat_history
-from src.api_response import create_api_response
-from src.chunkid_entities import get_entities_from_chunkids
-from src.communities import create_communities
-from src.entities.source_extract_params import SourceScanExtractParams, get_source_scan_extract_params
-from src.entities.user_credential import Neo4jCredentials, get_neo4j_credentials
-from src.graphDB_dataAccess import graphDBdataAccess
-from src.graph_query import get_chunktext_results, get_graph_results, visualize_schema
-from src.logger import CustomLogger
-from src.main import (
+from QA_integration import QA_RAG, clear_chat_history
+from api_response import create_api_response
+from chunkid_entities import get_entities_from_chunkids
+from communities import create_communities
+from entities.source_extract_params import SourceScanExtractParams, get_source_scan_extract_params
+from entities.user_credential import Neo4jCredentials, get_neo4j_credentials
+from graphDB_dataAccess import graphDBdataAccess
+from graph_query import get_chunktext_results, get_graph_results, visualize_schema
+from logger import CustomLogger
+from main import (
     connection_check_and_get_vector_dimensions, create_source_node_graph_url_gcs, create_source_node_graph_url_s3,
     create_source_node_graph_url_youtube,create_source_node_graph_web_url,
     create_graph_database_connection, create_source_node_graph_url_wikipedia,
@@ -38,11 +38,11 @@ from src.main import (
     extract_graph_from_web_page, failed_file_process, get_labels_and_relationtypes, get_source_list_from_graph,
     manually_cancelled_job, populate_graph_schema_from_text, set_status_retry, update_graph, upload_file
 )
-from src.neighbours import get_neighbour_nodes
-from src.post_processing import create_entity_embedding, create_vector_fulltext_indexes, graph_schema_consolidation
-from src.ragas_eval import get_additional_metrics, get_ragas_metrics
-from src.shared.common_fn import formatted_time, get_value_from_env, get_remaining_token_limits
-from src.shared.llm_graph_builder_exception import LLMGraphBuilderException
+from neighbours import get_neighbour_nodes
+from post_processing import create_entity_embedding, create_vector_fulltext_indexes, graph_schema_consolidation
+from ragas_eval import get_additional_metrics, get_ragas_metrics
+from shared.common_fn import formatted_time, get_value_from_env, get_remaining_token_limits
+from shared.llm_graph_builder_exception import LLMGraphBuilderException
 from Secweb.XContentTypeOptions import XContentTypeOptions
 from Secweb.XFrameOptions import XFrame
 

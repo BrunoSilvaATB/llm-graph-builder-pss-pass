@@ -3,13 +3,13 @@ import os
 import json
 import logging
 from typing import Any
-from src.entities.user_credential import Neo4jCredentials
+from entities.user_credential import Neo4jCredentials
 from transformers import AutoTokenizer, AutoModel
 from langchain_huggingface import HuggingFaceEmbeddings
 from threading import Lock
 import logging
 from urllib.parse import urlparse,parse_qs
-from src.shared.llm_graph_builder_exception import LLMGraphBuilderException
+from shared.llm_graph_builder_exception import LLMGraphBuilderException
 from langchain_google_vertexai import VertexAIEmbeddings
 from langchain_openai import OpenAIEmbeddings
 from langchain_neo4j import Neo4jGraph

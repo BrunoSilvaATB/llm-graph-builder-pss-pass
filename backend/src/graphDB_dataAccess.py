@@ -3,11 +3,11 @@ import os
 import time
 from neo4j.exceptions import TransientError
 from langchain_neo4j import Neo4jGraph
-from src.shared.common_fn import create_gcs_bucket_folder_name_hashed, delete_uploaded_local_file, load_embedding_model, get_value_from_env
-from src.document_sources.gcs_bucket import delete_file_from_gcs
-from src.shared.constants import NODEREL_COUNT_QUERY_WITH_COMMUNITY, NODEREL_COUNT_QUERY_WITHOUT_COMMUNITY
-from src.entities.source_node import sourceNode
-from src.communities import MAX_COMMUNITY_LEVELS
+from shared.common_fn import create_gcs_bucket_folder_name_hashed, delete_uploaded_local_file, load_embedding_model, get_value_from_env
+from document_sources.gcs_bucket import delete_file_from_gcs
+from shared.constants import NODEREL_COUNT_QUERY_WITH_COMMUNITY, NODEREL_COUNT_QUERY_WITHOUT_COMMUNITY
+from entities.source_node import sourceNode
+from communities import MAX_COMMUNITY_LEVELS
 import json
 from dotenv import load_dotenv
 

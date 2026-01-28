@@ -2,8 +2,8 @@ import json
 import logging
 import re
 
-from src.graph_query import get_graphDB_driver
-from src.shared.constants import (
+from graph_query import get_graphDB_driver
+from shared.constants import (
     CHAT_ENTITY_VECTOR_MODE,
     CHAT_GLOBAL_VECTOR_FULLTEXT_MODE,
     CHUNK_QUERY,

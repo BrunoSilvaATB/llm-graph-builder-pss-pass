@@ -1,11 +1,11 @@
 import logging
 from neo4j import time 
 from neo4j import GraphDatabase
-from src.shared.common_fn import get_value_from_env
+from shared.common_fn import get_value_from_env
 import os
 import json
 
-from src.shared.constants import GRAPH_CHUNK_LIMIT,GRAPH_QUERY,CHUNK_TEXT_QUERY,COUNT_CHUNKS_QUERY,SCHEMA_VISUALIZATION_QUERY
+from shared.constants import GRAPH_CHUNK_LIMIT,GRAPH_QUERY,CHUNK_TEXT_QUERY,COUNT_CHUNKS_QUERY,SCHEMA_VISUALIZATION_QUERY
 
 def get_graphDB_driver(credentials):
     """
