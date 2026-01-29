@@ -35,8 +35,6 @@ def get_llm(model: str):
     callback_handler = UniversalTokenUsageHandler()
     callback_manager = CallbackManager([callback_handler])
     try:
-        if "localai" in model:
-            model_name = env_value
 
         if "GEMINI" in model:
             model_name = env_value
