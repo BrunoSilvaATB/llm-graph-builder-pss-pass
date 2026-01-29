@@ -16,6 +16,32 @@ This application allows you to upload files from various sources (local machine,
 - There are issues with the version of Numphy, to solve that issue just run `pip install numpy<2`.
 - Before running the yarn dev run, you should first install the dependencies, so please run `yarn install`.
 
+How does it work in short:
+
+1. Split input documents into chunks
+   (First snippet: TokenTextSplitter)
+   └─> Output: List[LangChain Document] with metadata
+
+2. Prepare chunk info for graph processing
+   (chunkId_chunkDoc_list)
+   └─> Each chunk now has a node in Neo4j (or source node info)
+
+3. Process each chunk:
+   a. create_chunk_embeddings(graph, chunkId_chunkDoc_list, file_name)
+       └─> Adds embeddings to each chunk node in the graph DB
+   b. get_graph_from_llm(model, chunkId_chunkDoc_list, ...)
+       └─> Extracts entities/relationships from chunk text
+   c. track_token_usage(...)
+       └─> Logs token usage for the LLM
+
+4. Update the source node in Neo4j:
+   ├─> file_name, updated_at, processing_time
+   ├─> processed_chunk count, token usage
+   ├─> node_count, relationship_count (from extracted graph)
+   └─> status: Completed / Cancelled
+
+5. Clean up uploaded files (local or GCS)
+
 ## Getting Started
 
 ### **Prerequisites**
